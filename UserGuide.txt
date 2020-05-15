@@ -1,0 +1,18 @@
+User Guide
+
+The program is broken up into two main parts: the Arduino and the Raspberry Pi.
+The Arduino is programmed to open a serial connection and establishes a baud rate
+for transferring data from the capacitive soil moisture sensors. The Arduino is 
+powered and transmits data through the USB port of the Raspberry Pi. Upload the 
+soilsensorsetup.ino file to the Arduino, then plug the Arduino into the Raspberry
+Pi. 
+
+On the Raspberry Pi, the data is received and the program creates sensor objects
+and populates them with the data from each sensor. Initially, the program is only 
+set up for two moisture sensors. Depending on the values read in from the sensor,
+a state machine determines if the moisture levels of the soil is acceptable. These 
+values were determined experimentally by noting the value read by the sensors when
+held in water and when dried off completely. Depending on the level of moisture,
+LEDs will power on indicating the state of the soil. A red LED means the soil is
+dry and the plant needs water. Yellow means there is some moisture in the soil. A 
+green LED means the soil is moist and the plant does not need to be watered. 
